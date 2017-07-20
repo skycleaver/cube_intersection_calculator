@@ -19,19 +19,19 @@ class Cube
         $this->length = $length;
     }
 
-    public function centerX(): int {
+    public function centerX(): float {
         return $this->center->x();
     }
 
-    public function centerY(): int {
+    public function centerY(): float {
         return $this->center->y();
     }
 
-    public function centerZ(): int {
+    public function centerZ(): float {
         return $this->center->z();
     }
 
-    public function length(): int
+    public function length(): float
     {
         return $this->length;
     }

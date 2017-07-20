@@ -5,36 +5,36 @@ namespace src;
 class Coordinate
 {
     /**
-     * @var int
+     * @var float
      */
     private $x;
     /**
-     * @var int
+     * @var float
      */
     private $y;
     /**
-     * @var int
+     * @var float
      */
     private $z;
 
-    public function __construct(int $x, int $y, int $z)
+    public function __construct(float $x, float $y, float $z)
     {
         $this->x = $x;
         $this->y = $y;
         $this->z = $z;
     }
 
-    public function x(): int
+    public function x(): float
     {
         return $this->x;
     }
 
-    public function y(): int
+    public function y(): float
     {
         return $this->y;
     }
 
-    public function z(): int
+    public function z(): float
     {
         return $this->z;
     }
