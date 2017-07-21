@@ -43,46 +43,66 @@ class IntersectionCalculator
         float $length2
     ): float
     {
-        // direct case: the cubes don't intersect with each other
-        if (
-            abs($coordinate1 - $coordinate2)
-            >=
-            ($length1 / 2 + $length2 / 2)
-        ) {
+
+        if ($this->coordinatesDoNotIntersect($coordinate1, $coordinate2, $length1, $length2)) {
             return 0.0;
         }
 
-        // direct case: one of the sides of a cube is inside the other
-        if (
-            ($coordinate1 + $length1 / 2 > $coordinate2 + $length2 / 2)
-            &&
-            ($coordinate1 - $length1 / 2 < $coordinate2 - $length2 / 2)
+        if ($this->oneSideOfTheCubeIsInsideTheOther(
+            $coordinate1,
+            $coordinate2,
+            $length1,
+            $length2
+        )
         ) {
             return $length2;
         }
-        if (
-            ($coordinate2 + $length2 / 2 > $coordinate1 + $length1 / 2)
-            &&
-            ($coordinate2 - $length2 / 2 < $coordinate1 - $length1 / 2)
+        if ($this->oneSideOfTheCubeIsInsideTheOther(
+            $coordinate2,
+            $coordinate1,
+            $length2,
+            $length1
+        )
         ) {
             return $length1;
         }
 
         // rest of cases: the cubes intersect partially
         if ($coordinate1 > $coordinate2) {
-            $intersectionCoordinate = abs(
+            return abs(
                 ($coordinate1 - $length1 / 2)
                 -
                 ($coordinate2 + $length2 / 2)
             );
         } else {
-            $intersectionCoordinate = abs(
+            return abs(
                 ($coordinate2 - $length2 / 2)
                 -
                 ($coordinate1 + $length1 / 2)
             );
         }
+    }
 
-        return $intersectionCoordinate;
+    private function coordinatesDoNotIntersect(
+        float $coordinate1,
+        float $coordinate2,
+        float $length1,
+        float $length2
+    ): bool
+    {
+        return abs($coordinate1 - $coordinate2) >= ($length1 / 2 + $length2 / 2);
+    }
+
+    private function oneSideOfTheCubeIsInsideTheOther(
+        float $coordinate1,
+        float $coordinate2,
+        float $length1,
+        float $length2
+    ): bool
+    {
+        return
+            ($coordinate1 + $length1 / 2 > $coordinate2 + $length2 / 2)
+            &&
+            ($coordinate1 - $length1 / 2 < $coordinate2 - $length2 / 2);
     }
 }
