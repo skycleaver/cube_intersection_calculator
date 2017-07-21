@@ -1,4 +1,5 @@
 #Cube intersection calculator
+
 It's not the best name, but hey.
 
 This implements an algorithm to calculate
@@ -12,6 +13,7 @@ example, one that calculates intersection volume
 of rotated cubes).
 
 ##Future improvements
+
 Apart from the rotating bit mentioned above,
 the Cube class will most likely need a factory,
 as having to create a Coordinate object before
@@ -25,4 +27,5 @@ class that has a Cube inside and the rotation of
 each axis (composition, not inheritance).
 
 ##Launching the tests
+
 `vendor/bin/phpunit tests/`
