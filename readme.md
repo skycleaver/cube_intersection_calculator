@@ -1,4 +1,4 @@
-#Cube intersection calculator
+# Cube intersection calculator
 
 It's not the best name, but hey.
 
@@ -12,7 +12,7 @@ so you can switch it for a better one (for
 example, one that calculates intersection volume
 of rotated cubes).
 
-##Future improvements
+## Future improvements
 
 Apart from the rotating bit mentioned above,
 the Cube class will most likely need a factory,
@@ -26,6 +26,6 @@ my advice would be to a create a RotatedCube
 class that has a Cube inside and the rotation of
 each axis (composition, not inheritance).
 
-##Launching the tests
+## Launching the tests
 
 `vendor/bin/phpunit tests/`
