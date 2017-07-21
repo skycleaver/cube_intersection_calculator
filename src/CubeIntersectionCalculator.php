@@ -2,41 +2,34 @@
 
 namespace src;
 
-class IntersectionCalculator
+class CubeIntersectionCalculator implements CubeIntersectionCalculatorInterface
 {
-
-    /**
-     * IntersectionCalculator constructor.
-     */
-    public function __construct()
-    {
-    }
 
     public function getIntersectionVolume(Cube $cube1, Cube $cube2): float
     {
-        $intersectionX = $this->getCoordinateIntersection(
+        $intersectionLengthX = $this->getIntersectionLength(
             $cube1->centerX(),
             $cube2->centerX(),
             $cube1->length(),
             $cube2->length()
         );
-        $intersectionY = $this->getCoordinateIntersection(
+        $intersectionLengthY = $this->getIntersectionLength(
             $cube1->centerY(),
             $cube2->centerY(),
             $cube1->length(),
             $cube2->length()
         );
-        $intersectionZ = $this->getCoordinateIntersection(
+        $intersectionLengthZ = $this->getIntersectionLength(
             $cube1->centerZ(),
             $cube2->centerZ(),
             $cube1->length(),
             $cube2->length()
         );
 
-        return $intersectionX * $intersectionY * $intersectionZ;
+        return $intersectionLengthX * $intersectionLengthY * $intersectionLengthZ;
     }
 
-    private function getCoordinateIntersection(
+    private function getIntersectionLength(
         float $coordinate1,
         float $coordinate2,
         float $length1,

@@ -5,7 +5,7 @@ namespace tests;
 use PHPUnit\Framework\TestCase;
 use src\Coordinate;
 use src\Cube;
-use src\IntersectionCalculator;
+use src\CubeIntersectionCalculator;
 
 class CalculateIntersectionVolumeOfCollidingCubesTest extends TestCase
 {
@@ -33,7 +33,7 @@ class CalculateIntersectionVolumeOfCollidingCubesTest extends TestCase
             $data['cube2']['length']
         );
 
-        $intersectionCalculator = new IntersectionCalculator();
+        $intersectionCalculator = new CubeIntersectionCalculator();
         $intersectionVolume = $intersectionCalculator->getIntersectionVolume($cube1, $cube2);
 
         $this->assertEquals($data['expected_result'], $intersectionVolume);
