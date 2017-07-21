@@ -23,3 +23,6 @@ If rotation angles were to be added to the cubes,
 my advice would be to a create a RotatedCube
 class that has a Cube inside and the rotation of
 each axis (composition, not inheritance).
+
+##Launching the tests
+`vendor/bin/phpunit tests/`
