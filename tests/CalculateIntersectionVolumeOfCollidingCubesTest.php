@@ -83,6 +83,26 @@ class CalculateIntersectionVolumeOfCollidingCubesTest extends TestCase
                     'expected_result' => 300.0
                 ]
             ], [
+                'colliding_cubes_z_axis' => [
+                    'cube1' => [
+                        'coordinates' => [
+                            'x' => 1.0,
+                            'y' => 2.0,
+                            'z' => 3.0,
+                        ],
+                        'length' => 6.0
+                    ],
+                    'cube2' => [
+                        'coordinates' => [
+                            'x' => 1.0,
+                            'y' => 2.0,
+                            'z' => 5.0,
+                        ],
+                        'length' => 4.0
+                    ],
+                    'expected_result' => 48.0
+                ]
+            ], [
                 'non_colliding_cubes' => [
                     'cube1' => [
                         'coordinates' => [
@@ -121,6 +141,48 @@ class CalculateIntersectionVolumeOfCollidingCubesTest extends TestCase
                         'length' => 6.0
                     ],
                     'expected_result' => 64.0
+                ]
+            ],
+            [
+                'negative_coordinates_colliding_cubes' => [
+                    'cube1' => [
+                        'coordinates' => [
+                            'x' => -2.0,
+                            'y' => -2.0,
+                            'z' => -2.0,
+                        ],
+                        'length' => 10.0
+                    ],
+                    'cube2' => [
+                        'coordinates' => [
+                            'x' => -6.0,
+                            'y' => -6.0,
+                            'z' => -6.0,
+                        ],
+                        'length' => 12.0
+                    ],
+                    'expected_result' => 343.0
+                ]
+            ],
+            [
+                'cube_inside_another' => [
+                    'cube1' => [
+                        'coordinates' => [
+                            'x' => -1.0,
+                            'y' => -5.0,
+                            'z' => -7.0,
+                        ],
+                        'length' => 2.0
+                    ],
+                    'cube2' => [
+                        'coordinates' => [
+                            'x' => -6.0,
+                            'y' => -6.0,
+                            'z' => -6.0,
+                        ],
+                        'length' => 12.0
+                    ],
+                    'expected_result' => 8.0
                 ]
             ]
         ];

@@ -44,15 +44,28 @@ class IntersectionCalculator
     ): float
     {
         // direct case: the cubes don't intersect with each other
-        if (abs($coordinate1 - $coordinate2)
-            >= ($length1 / 2 + $length2 / 2)
+        if (
+            abs($coordinate1 - $coordinate2)
+            >=
+            ($length1 / 2 + $length2 / 2)
         ) {
             return 0.0;
         }
 
         // direct case: one of the sides of a cube is inside the other
-        if (abs($coordinate1 - $coordinate2) < min($length1 / 2, $length2 / 2)) {
-            return min($length1, $length2);
+        if (
+            ($coordinate1 + $length1 / 2 > $coordinate2 + $length2 / 2)
+            &&
+            ($coordinate1 - $length1 / 2 < $coordinate2 - $length2 / 2)
+        ) {
+            return $length2;
+        }
+        if (
+            ($coordinate2 + $length2 / 2 > $coordinate1 + $length1 / 2)
+            &&
+            ($coordinate2 - $length2 / 2 < $coordinate1 - $length1 / 2)
+        ) {
+            return $length1;
         }
 
         // rest of cases: the cubes intersect partially
